@@ -13,7 +13,7 @@ import { HeroesStore } from './heroes.store';
   providers: [HeroesStore]
 })
 export class HeroesComponent implements OnInit {
-  heroes$ : Observable<Hero[]> = this.componentStore.heroes$;;
+  heroes$ : Observable<Hero[]> = this.componentStore.heroes$;
 
   constructor(private componentStore: HeroesStore) { }
 
