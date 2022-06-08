@@ -3,11 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
 import { Observable } from 'rxjs';
-import { selectHeroById } from '../state/hero/hero.reducer';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.store';
+import { selectHeroById } from '../state/hero/hero.selectors';
 
 @Component({
   selector: 'app-hero-detail',
@@ -20,7 +19,6 @@ export class HeroDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
     private location: Location,
     private store: Store<AppState>
   ) {

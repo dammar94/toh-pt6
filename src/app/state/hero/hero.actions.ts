@@ -6,7 +6,7 @@ export const DELETE_HERO: string = '[Hero] Delete Hero';
 
 export class AddHero implements Action {
   readonly type = ADD_HERO;
-  constructor(public payload: Hero) {}
+  constructor(public payload: string) {}
 }
 
 export class DeleteHero implements Action {

@@ -26,22 +26,17 @@ export function heroReducer(state: Hero[] = defaultState, action: Action) {
   console.log(action.type, state);
   switch (action.type) {
     case HeroActions.ADD_HERO:
-      // TODO
-      return state;
+    let heroToAdd: Hero = {
+      id: idCount,
+      name: action.payload as string
+    };
+    idCount++;
+    return [...state, heroToAdd];
     case HeroActions.DELETE_HERO:
-      // TODO
-      return state;
+      return state.filter( hero => hero.id != (action.payload as Hero).id);
     default:
       return state;
   }
 }
 
-export const selectHeroes = (state: AppState) => state.heroes;
 
-// selector with param
-export const selectHeroById = (heroId: number) =>
-  createSelector(
-    selectHeroes, 
-    (heroes: Hero[]) => 
-      heroes.find(c => c.id === heroId) 
-  )
