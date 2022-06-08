@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-
-import { Hero } from '../hero';
-import { AppState } from '../state/app.store';
 import { HeroesStore } from './heroes.store';
 
 @Component({
@@ -13,16 +8,9 @@ import { HeroesStore } from './heroes.store';
   providers: [HeroesStore]
 })
 export class HeroesComponent implements OnInit {
-  heroes$ : Observable<Hero[]> = this.componentStore.heroes$;
 
-  constructor(private componentStore: HeroesStore) { }
+  constructor(public cs: HeroesStore) { }
 
   ngOnInit(): void { }
-
-  addHero(): void { this.componentStore.addHero(); }
-
-  onInputChange(name: string): void { this.componentStore.setName(name); }
-
-  delete(hero: Hero): void { this.componentStore.deleteHero(hero); }
 
 }

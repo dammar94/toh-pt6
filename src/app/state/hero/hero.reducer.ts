@@ -34,6 +34,17 @@ export function heroReducer(state: Hero[] = defaultState, action: Action) {
     return [...state, heroToAdd];
     case HeroActions.DELETE_HERO:
       return state.filter( hero => hero.id != (action.payload as Hero).id);
+    case HeroActions.UPDATE_HERO:
+      return state.map( hero => {
+        if (hero.id === (action.payload as HeroActions.UpdateHeroPayload).id) {
+          let heroUpdated: Hero = {
+            id: (action.payload as HeroActions.UpdateHeroPayload).id,
+            name: (action.payload as HeroActions.UpdateHeroPayload).nameUpdated
+          }
+          return heroUpdated;
+        }
+        return hero;
+      });
     default:
       return state;
   }

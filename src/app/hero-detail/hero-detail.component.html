@@ -1,10 +1,10 @@
-<div *ngIf="hero$ | async">
-  <h2>{{(hero$ | async)?.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{(hero$ | async)?.id}}</div>
+<div *ngIf="cs.hero$ | async">
+  <h2>{{(cs.hero$ | async)?.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{(cs.hero$ | async)?.id}}</div>
   <div>
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="heroName" placeholder="Hero name"/>
+    <input #heroName id="hero-name" [ngModel]="cs.name$ | async" (ngModelChange)="cs.setNameUpdated(heroName.value)" placeholder="Hero name"/>
   </div>
   <button type="button" (click)="goBack()">go back</button>
-  <button type="button" (click)="save()">save</button>
+  <button type="button" (click)="cs.updateHeroName()">save</button>
 </div>

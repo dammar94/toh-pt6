@@ -2,20 +2,20 @@
 
 <div>
   <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName (change)="onInputChange(heroName.value)"/>
+  <input id="new-hero" #heroName (change)="cs.setName(heroName.value)"/>
 
   <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="addHero()">
+  <button type="button" class="add-button" (click)="cs.addHero()">
     Add hero
   </button>
 </div>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes$ | async">
+  <li *ngFor="let hero of cs.heroes$ | async">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
     <button type="button" class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
+      (click)="cs.deleteHero(hero)">x</button>
   </li>
 </ul>

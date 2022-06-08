@@ -4,7 +4,6 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Hero } from "../hero";
 import { AppState } from "../state/app.store";
-import { DeleteHero } from "../state/hero/hero.actions";
 
 export interface HeroSearchState {
     nameToSearch: string;

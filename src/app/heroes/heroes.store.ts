@@ -3,7 +3,6 @@ import { ComponentStore } from "@ngrx/component-store";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Hero } from "../hero";
-import { HeroService } from "../hero.service";
 import { AppState } from "../state/app.store";
 import { AddHero, DeleteHero } from "../state/hero/hero.actions";
 
